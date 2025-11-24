@@ -1,8 +1,10 @@
-import { Image, Text, TextInput, View, StyleSheet } from "react-native";
+import { Image, Text, TextInput, View, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function Login() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <Image
@@ -46,9 +48,11 @@ export default function Login() {
             <Text>Forgot Password?</Text>
         </View>
 
+          <TouchableOpacity onPress={()=>router.push("/auth/Signup")}>
         <View style={styles.button}>
           <Text style={{color: "#fff", fontWeight: "700", fontSize: 18}}>Login</Text>
         </View>
+          </TouchableOpacity>
       </View>
     </View>
   );

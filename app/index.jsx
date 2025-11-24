@@ -42,9 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f8f8",
   },
   logo: {
-    width: 240,
-    height: 140,
-    marginBottom: 35,
+    width: 250,
+    height: 160,
   },
   welcomeText: {
     fontSize: 26,
