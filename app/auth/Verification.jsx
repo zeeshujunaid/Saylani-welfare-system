@@ -34,12 +34,15 @@ export default function Verification() {
     <KeyboardAvoidingView
       style={{ flex: 1, backgroundColor: "#fff" }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
-          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{
+            paddingBottom: 60,
+            alignItems: "center",
+          }}
         >
           <View style={styles.container}>
             <Image
@@ -91,10 +94,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: "center",
     paddingTop: 50,
+    height: "100%",
   },
   container: {
     flex: 1,
-    gap: 10,
+    paddingTop: 50,
+    minHeight: "100%",
+    gap: 5,
     paddingHorizontal: 25,
     backgroundColor: "#fff",
   },
@@ -132,7 +138,8 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 30,
+    color: "#0000007e",
     backgroundColor: "#ffffffad",
   },
   resendText: {

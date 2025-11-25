@@ -27,7 +27,7 @@ export default function Signup() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
+      style={{ flex: 1, backgroundColor: "#fff" }}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
@@ -105,7 +105,7 @@ export default function Signup() {
                     <Ionicons name="checkmark" size={18} color="#fff" />
                   )}
                 </View>
-                <Text style={{ color: "#00000077",fontSize: 12, }}>
+                <Text style={{ color: "#00000077", fontSize: 12 }}>
                   I agree to the Terms and Conditions and Privacy Policy
                 </Text>
               </TouchableOpacity>

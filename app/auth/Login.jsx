@@ -27,13 +27,14 @@ export default function Login() {
       }
       setCnic("");
       setPhone("");
+      setError(false);
     }
 
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
+      style={{ flex: 1, backgroundColor: "#fff" }}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
