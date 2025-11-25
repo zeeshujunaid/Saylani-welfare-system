@@ -12,8 +12,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useRef, useState } from "react";
+import { useRouter } from "expo-router";
 
 export default function Verification() {
+  const router = useRouter();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
 
@@ -79,7 +81,9 @@ export default function Verification() {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+            onPress={()=>router.push("/(tabs)/Homescreen")}
+            >
               <Text style={styles.buttonText}>Verify</Text>
             </TouchableOpacity>
           </View>
