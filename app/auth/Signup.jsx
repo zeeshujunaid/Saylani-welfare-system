@@ -12,7 +12,6 @@ import {
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import CheckBox from "@react-native-community/checkbox";
 
 export default function Signup() {
   const [checked, setChecked] = useState(false);
@@ -142,7 +141,7 @@ export default function Signup() {
                 Already have an account?{" "}
                 <Text
                   style={styles.signupText}
-                  onPress={() => router.push("/auth/Login")}
+                  onPress={() => router.push("/auth/Verification")}
                 >
                   Log in
                 </Text>
@@ -161,7 +160,7 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     paddingHorizontal: 25,
     paddingVertical: 55,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#fff",
   },
   logo: {
     width: 200,
