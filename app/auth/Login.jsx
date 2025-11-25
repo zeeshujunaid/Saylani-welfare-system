@@ -13,11 +13,20 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 export default function Login() {
   const router = useRouter();
+  const [cnic, setCnic] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState(false);
   
   
-    const handellogin=()=>{
-      setError(true);
+    const handellogin = () => {
+      if (!cnic || !phone) {
+        setError(true);
+      } else {
+        setError(false);
+        router.push('/auth/Verification');
+      }
+      setCnic("");
+      setPhone("");
     }
 
 
@@ -46,10 +55,12 @@ export default function Login() {
 
             <View style={styles.inputContainer}>
               <TextInput
+                value={cnic}
+                onChangeText={(text) => setCnic(text)}
                 placeholder="422101-1234567-1"
                 placeholderTextColor="#909090"
-                style={styles.inputWithIcon}
-                keyboardType="email-address"
+                style={styles.input}
+                keyboardType="number-pad"
               />
             </View>
 
@@ -57,10 +68,12 @@ export default function Login() {
 
             <View style={styles.inputContainer}>
               <TextInput
+                value={phone}
+                onChangeText={(text) => setPhone(text)}
                 placeholder="0300-1234567"
                 placeholderTextColor="#909090"
-                secureTextEntry={true}
-                style={styles.inputWithIcon}
+                style={styles.input}
+                keyboardType="number-pad"
               />
             </View>
 
@@ -163,9 +176,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: "center",
   },
-  inputWithIcon: {
+  input: {
     flex: 1,
-    color: "#0000000e",
+    color: "#000",
     fontSize: 15,
     marginLeft: 10,
   },

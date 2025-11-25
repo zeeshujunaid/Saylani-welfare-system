@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    color: "#000000ff",
+    color: "#000",
     fontSize: 15,
     marginLeft: 10,
   },
