@@ -1,72 +1,122 @@
-import { Image, Text, TextInput, View, StyleSheet, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import {
+  Image,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from "react-native";
 import { useRouter } from "expo-router";
-import AntDesign from "@expo/vector-icons/AntDesign";
-
+import { useState } from "react";
 export default function Login() {
   const router = useRouter();
+  const [error, setError] = useState(false);
+  
+  
+    const handellogin=()=>{
+      setError(true);
+    }
+
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/saylanilogo.png")}
-        style={styles.logo}
-        resizeMode="contain"
-      />
-
-      <View style={styles.header}>
-        <Text style={styles.title}>Login</Text>
-        <Text style={styles.subtitle}>
-          Enter your email and password to log in.
-        </Text>
-      </View>
-
-      <View style={styles.form}>
-        <Text style={styles.label}>Email Address</Text>
-
-        <View style={styles.inputContainer}>
-          <Ionicons name="mail-outline" size={22} color="#00000034" />
-          <TextInput
-            placeholder="your email address"
-            style={styles.inputWithIcon}
-            keyboardType="email-address"
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <Image
+            source={require("../../assets/images/saylanilogo.png")}
+            style={styles.logo}
+            resizeMode="contain"
           />
-        </View>
 
-        <Text style={styles.label}>Password</Text>
+          <View style={styles.header}>
+            <Text style={styles.title}>Login to your Account</Text>
+            <Text style={styles.subtitle}>
+              Log in to continue your application and stay updated.
+            </Text>
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={22} color="#00000034" />
-          <TextInput
-            placeholder="your password"
-            secureTextEntry={true}
-            style={styles.inputWithIcon}
-          />
-          <AntDesign name="eye-invisible" size={24} color="#00000034" />
-        </View>
+          <View style={styles.form}>
+            <Text style={styles.label}>CNIC Number</Text>
 
-        <View style={{ alignItems: "flex-end", marginBottom: 25 }}>
-            <Text>Forgot Password?</Text>
-        </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="422101-1234567-1"
+                placeholderTextColor="#909090"
+                style={styles.inputWithIcon}
+                keyboardType="email-address"
+              />
+            </View>
 
-          <TouchableOpacity onPress={()=>router.push("/auth/Signup")}>
-        <View style={styles.button}>
-          <Text style={{color: "#fff", fontWeight: "700", fontSize: 18}}>Login</Text>
+            <Text style={styles.label}>Phone Number</Text>
+
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="0300-1234567"
+                placeholderTextColor="#909090"
+                secureTextEntry={true}
+                style={styles.inputWithIcon}
+              />
+            </View>
+
+            {error && (
+              <View
+                style={{
+                  height: 50,
+                  width: "100%",
+                  backgroundColor: "#FEF2F2",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "#EF4444" }}>
+                  plz fill all required fields
+                </Text>
+              </View>
+            )}
+
+            <TouchableOpacity onPress={handellogin}>
+              <View style={styles.button}>
+                <Text
+                  style={{ color: "#fff", fontWeight: "700", fontSize: 18 }}
+                >
+                  Login
+                </Text>
+              </View>
+            </TouchableOpacity>
+
+            <View>
+              <Text style={styles.bottomText}>
+                Don't have an account?{" "}
+                <Text
+                  style={styles.signupText}
+                  onPress={() => router.push("/auth/Signup")}
+                >
+                  Signup
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
-          </TouchableOpacity>
-      </View>
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     paddingHorizontal: 25,
+    paddingVertical: 55,
     backgroundColor: "#f8f8f8",
   },
   logo: {
-    width: 250,
+    width: 200,
     alignSelf: "center",
     marginBottom: 20,
   },
@@ -77,7 +127,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#193C77",
+    color: "#0071BA",
   },
   subtitle: {
     fontSize: 14,
@@ -93,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 6,
     fontWeight: "600",
-    color: "#193C77",
+    color: "#0071BA",
   },
   inputContainer: {
     flexDirection: "row",
@@ -103,11 +153,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#00000034",
     borderRadius: 10,
-    paddingHorizontal: 12,
     marginBottom: 18,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffffad",
   },
-  button:{
+  button: {
+    marginTop: 30,
     backgroundColor: "#89C441",
     paddingVertical: 15,
     borderRadius: 15,
@@ -115,8 +165,17 @@ const styles = StyleSheet.create({
   },
   inputWithIcon: {
     flex: 1,
-    color:"#00000034",
+    color: "#0000000e",
     fontSize: 15,
     marginLeft: 10,
+  },
+  bottomText: {
+    textAlign: "center",
+    marginTop: 20,
+    color: "#000000b3",
+  },
+  signupText: {
+    color: "#0071BA",
+    fontWeight: "600",
   },
 });
