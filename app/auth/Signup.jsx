@@ -91,21 +91,22 @@ export default function Signup() {
               >
                 <View
                   style={{
+                    backgroundColor: checked ? "#0071BA" : "transparent",
                     width: 24,
                     height: 24,
                     borderWidth: 2,
-                    borderColor: "#007AFF",
-                    borderRadius: 5,
+                    borderColor: "#0071BA",
+                    borderRadius: 10,
                     justifyContent: "center",
                     alignItems: "center",
                     marginRight: 10,
                   }}
                 >
                   {checked && (
-                    <Ionicons name="checkmark" size={18} color="#007AFF" />
+                    <Ionicons name="checkmark" size={18} color="#fff" />
                   )}
                 </View>
-                <Text>
+                <Text style={{ color: "#00000077",fontSize: 12, }}>
                   I agree to the Terms and Conditions and Privacy Policy
                 </Text>
               </TouchableOpacity>
