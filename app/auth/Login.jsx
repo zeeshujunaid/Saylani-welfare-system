@@ -108,7 +108,7 @@ export default function Login() {
                 Don't have an account?{" "}
                 <Text
                   style={styles.signupText}
-                  onPress={() => router.push("/auth/Signup")}
+                  onPress={() => router.push("/(tabs)/Homescreen")}
                 >
                   Signup
                 </Text>
@@ -124,7 +124,6 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: "center",
     paddingHorizontal: 25,
     paddingVertical: 55,
     backgroundColor: "#f8f8f8",

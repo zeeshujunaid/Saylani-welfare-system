@@ -82,7 +82,7 @@ export default function Verification() {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button}
-            onPress={()=>router.push("/(tabs)/Homescreen")}
+            onPress={()=>router.push("/auth/Registrationform")}
             >
               <Text style={styles.buttonText}>Verify</Text>
             </TouchableOpacity>
