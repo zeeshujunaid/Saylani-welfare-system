@@ -13,8 +13,10 @@ import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 import Entypo from "@expo/vector-icons/Entypo";
+import { useRouter } from "expo-router";
 
 export default function Registrationform() {
+  const router = useRouter();
   const [progress, setProgress] = useState(30);
   const [gender, setGender] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("");
@@ -181,7 +183,8 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+            onPress={()=>router.push("/auth/Submitscreen")}>
               <Text style={styles.buttonText}>SUBMIT REGISTRATION</Text>
             </TouchableOpacity>
           </View>
