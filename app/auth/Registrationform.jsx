@@ -171,7 +171,7 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => setStep(3)}>
               <Text style={styles.buttonText}>SUBMIT REGISTRATION</Text>
             </TouchableOpacity>
           </View>
