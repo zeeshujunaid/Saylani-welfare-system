@@ -1,16 +1,9 @@
 import { View, StyleSheet } from "react-native";
 
-export default function ProgressBar({ step }) {
-  const getWidth = () => {
-    if (step === 1) return "30%";
-    if (step === 2) return "50%";
-    if (step === 3) return "100%";
-    return "30%";
-  };
-
+export default function ProgressBar({ progress }) {
   return (
     <View style={styles.container}>
-      <View style={[styles.progress, { width: getWidth() }]} />
+      <View style={[styles.progress, { width: `${progress}%` }]} />
     </View>
   );
 }
@@ -29,3 +22,4 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
+

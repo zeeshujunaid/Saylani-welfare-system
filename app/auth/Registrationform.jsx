@@ -15,6 +15,7 @@ import ProgressBar from "../components/ProgressBar";
 import Entypo from "@expo/vector-icons/Entypo";
 
 export default function Registrationform() {
+  const [progress, setProgress] = useState(30);
   const [gender, setGender] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("");
   const [step, setStep] = useState(1);
@@ -40,7 +41,7 @@ export default function Registrationform() {
               ? "Step 1 of 2 - Personal Details"
               : "Step 2 of 2 - Upload Documents"}
           </Text>
-          <ProgressBar step={step} />
+          <ProgressBar progress={progress} />
         </View>
 
         {/* ---------------- STEP 1 FORM ---------------- */}
@@ -120,7 +121,10 @@ export default function Registrationform() {
 
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => setStep(2)}
+                onPress={() => {
+                  setProgress(50);
+                  setStep(2); 
+                }}
               >
                 <Text style={styles.buttonText}>NEXT: UPLOAD DOCUMENTS</Text>
               </TouchableOpacity>
@@ -131,7 +135,7 @@ export default function Registrationform() {
         {/* ---------------- STEP 2 FORM ---------------- */}
         {step === 2 && (
           <View style={styles.secondform}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setProgress(65)}>
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
@@ -143,7 +147,7 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setProgress(80)}>
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
@@ -157,7 +161,7 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setProgress(100)}>
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
@@ -171,7 +175,7 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => setStep(3)}>
+            <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>SUBMIT REGISTRATION</Text>
             </TouchableOpacity>
           </View>
