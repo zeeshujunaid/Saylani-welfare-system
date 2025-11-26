@@ -32,10 +32,10 @@ export default function Submitscreen() {
       </View>
 
       <View style={styles.statusBox}>
-        <Text style={{ color: "#fff", fontWeight: "400", fontSize: 12 }}>
+        <Text style={{ color: "#000", fontWeight: "400", fontSize: 12 }}>
           Current Status
         </Text>
-        <Text style={{ color: "#fff", fontWeight: "800", fontSize: 16 }}>
+        <Text style={{ color: "#000", fontWeight: "800", fontSize: 16 }}>
           {""}
           <View
             style={{
@@ -47,7 +47,7 @@ export default function Submitscreen() {
           ></View>{" "}
           PENDING APPROVAL
         </Text>
-        <Text style={{ color: "#fff", fontWeight: "400", fontSize: 12 }}>
+        <Text style={{ color: "#000", fontWeight: "400", fontSize: 12 }}>
           You'll be notified soon
         </Text>
       </View>
@@ -126,10 +126,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 26,
-    fontWeight: "700",
     color: "#0071BA",
+    fontFamily: "Roboto_700Bold",
   },
   subtitle: {
+    fontFamily: "Roboto_400Regular",
     fontSize: 12,
     color: "#000",
     marginTop: 10,
@@ -138,7 +139,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
     padding: 20,
     gap: 5,
-    backgroundColor: "#0071BA",
+    borderWidth: 1,
+    borderColor: "#0071BA",
     borderRadius: 10,
     alignItems: "center",
   },
@@ -171,7 +173,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "700",
-    marginLeft: 8, // ← icon se gap
+    marginLeft: 8, 
   },
   number: {
     width: 50,
