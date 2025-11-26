@@ -98,7 +98,7 @@ export default function Submitscreen() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.replace("/auth/Login")}
+          onPress={() => router.replace("/(tabs)/Homescreen")}
         >
           <Ionicons name="chevron-back-outline" size={24} color="#fff" />
           <Text style={styles.buttonText}>Back To Login</Text>

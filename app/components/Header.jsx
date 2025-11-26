@@ -1,64 +1,47 @@
-import { Text, View, Pressable, TouchableOpacity, Image } from "react-native";
-import Entypo from "@expo/vector-icons/Entypo";
+import { Text, View, Image, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { useRouter } from "expo-router";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 export default function Header() {
-  const router = useRouter();
-  const navigation = useNavigation();
-
   return (
-    <View
-      style={{
-        width: "100%",
-        height: "12%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingHorizontal: 15,
-        paddingTop: 50,
-      }}
-    >
-      <Pressable
-        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-      >
-        <Entypo name="menu" size={28} color="black" />
-      </Pressable>
+    <View style={styles.header}>
+      {/* Left Logo */}
+      <Image
+        source={require("../../assets/images/saylanilogo.png")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "#eeeeeeff",
-            height: 40,
-            width: 40,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 10,
-          }}
-        >
-          <Ionicons name="notifications-outline" size={24} color="black" />
-        </View>
-        <TouchableOpacity onPress={() => router.push("/src/common/Profile")}>
-          <Image
-            source={require("../../assets/images/saylanilogo.png")}
-            style={{ width: 40, height: 40, borderRadius: 20 }}
-          />
-        </TouchableOpacity>
-
-        <View>
-          <Text style={{ fontSize: 14, fontWeight: "700", color: "#000" }}>
-            AHSAN KHAN
-          </Text>
-          <Text style={{ fontSize: 12, color: "#555" }}>Business Owner</Text>
-        </View>
+      {/* Right Notification Button */}
+      <View style={styles.notificationBox}>
+        <Ionicons name="notifications-outline" size={26} color="#00000070" />
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#fff",
+    width: "100%",
+    height: 90,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+
+  logo: {
+    width: 190,
+    height: 190,
+  },
+
+  notificationBox: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#fbfafae8",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 25,
     paddingVertical: 55,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#ffffffff",
   },
   logo: {
     width: 200,
