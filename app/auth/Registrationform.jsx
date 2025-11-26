@@ -12,6 +12,7 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import ProgressBar from "../components/ProgressBar";
+import Entypo from "@expo/vector-icons/Entypo";
 
 export default function Registrationform() {
   const [gender, setGender] = useState("");
@@ -32,9 +33,7 @@ export default function Registrationform() {
 
         <View style={styles.header}>
           <Text style={styles.title}>
-            {step === 1
-              ? "Complete Registration"
-              : "Upload Documents"}
+            {step === 1 ? "Complete Registration" : "Upload Documents"}
           </Text>
           <Text style={styles.subtitle}>
             {step === 1
@@ -119,7 +118,6 @@ export default function Registrationform() {
                 style={styles.input}
               />
 
-            
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => setStep(2)}
@@ -132,18 +130,49 @@ export default function Registrationform() {
 
         {/* ---------------- STEP 2 FORM ---------------- */}
         {step === 2 && (
-          <View style={styles.form}>
-            <Text style={styles.title}>Upload Documents</Text>
+          <View style={styles.secondform}>
+            <TouchableOpacity>
+              <View style={styles.dasheshborder}>
+                <View style={styles.iconbox}>
+                  <Entypo name="plus" size={38} color="#0071BA" />
+                </View>
+                <View style={styles.textbox}>
+                  <Text style={styles.uploadLabel}>CNIC Copy*</Text>
+                  <Text style={styles.info}>Front & Back (Pdf,JPG,PNG)</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
 
-            <Text style={{ fontSize: 16, marginTop: 20 }}>
-              Yahan tum CNIC Front, CNIC Back, Selfie, etc upload kar sakte ho.
-            </Text>
+            <TouchableOpacity>
+              <View style={styles.dasheshborder}>
+                <View style={styles.iconbox}>
+                  <Entypo name="plus" size={38} color="#0071BA" />
+                </View>
+                <View style={styles.textbox}>
+                  <Text style={styles.uploadLabel}>Proof of Address*</Text>
+                  <Text style={styles.info}>
+                    Utility bill or rental agreement
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.button, { marginTop: 30 }]}
-              onPress={() => setStep(3)}
-            >
-              <Text style={styles.buttonText}>BACK</Text>
+            <TouchableOpacity>
+              <View style={styles.dasheshborder}>
+                <View style={styles.iconbox}>
+                  <Entypo name="plus" size={38} color="#0071BA" />
+                </View>
+                <View style={styles.textbox}>
+                  <Text style={styles.uploadLabel}>Recent Photo*</Text>
+                  <Text style={styles.info}>
+                    Clear, passport-sized (JPG, PNG)
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>SUBMIT REGISTRATION</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -229,5 +258,45 @@ const styles = StyleSheet.create({
     width: "98%",
     marginBottom: 10,
     justifyContent: "center",
+  },
+  secondform: {
+    flex: 1,
+    width: "100%",
+  },
+  dasheshborder: {
+    flexDirection: "row",
+    borderWidth: 2,
+    borderColor: "#0070ba2f",
+    borderStyle: "dashed",
+    borderRadius: 12,
+    padding: 15,
+    marginVertical: 8,
+    height: 100,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+  iconbox: {
+    width: 45,
+    height: 45,
+    borderRadius: 10,
+    backgroundColor: "#0070ba25",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textbox: {
+    marginLeft: 12,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+  },
+  info: {
+    fontSize: 12,
+    color: "#555",
+    marginTop: 4,
+  },
+  uploadLabel: {
+    fontSize: 14,
+    color: "#000",
+    fontWeight: "600",
   },
 });
