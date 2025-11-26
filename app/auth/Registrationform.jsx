@@ -122,8 +122,8 @@ export default function Registrationform() {
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => {
-                  setProgress(50);
-                  setStep(2); 
+                  setProgress(40);
+                  setStep(2);
                 }}
               >
                 <Text style={styles.buttonText}>NEXT: UPLOAD DOCUMENTS</Text>
@@ -135,7 +135,9 @@ export default function Registrationform() {
         {/* ---------------- STEP 2 FORM ---------------- */}
         {step === 2 && (
           <View style={styles.secondform}>
-            <TouchableOpacity onPress={() => setProgress(65)}>
+            <TouchableOpacity
+              onPress={() => setProgress((prev) => Math.min(prev + 20, 100))}
+            >
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
@@ -147,7 +149,9 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setProgress(80)}>
+            <TouchableOpacity
+              onPress={() => setProgress((prev) => Math.min(prev + 20, 100))}
+            >
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
@@ -161,7 +165,9 @@ export default function Registrationform() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setProgress(100)}>
+            <TouchableOpacity
+              onPress={() => setProgress((prev) => Math.min(prev + 20, 100))}
+            >
               <View style={styles.dasheshborder}>
                 <View style={styles.iconbox}>
                   <Entypo name="plus" size={38} color="#0071BA" />
