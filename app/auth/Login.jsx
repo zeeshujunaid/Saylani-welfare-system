@@ -24,10 +24,10 @@ export default function Login() {
       } else {
         setError(false);
         router.push('/auth/Verification');
+        setError(false);
       }
       setCnic("");
       setPhone("");
-      setError(false);
     }
 
 

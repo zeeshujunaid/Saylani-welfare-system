@@ -20,14 +20,12 @@ export default function Header() {
         paddingTop: 50,
       }}
     >
-      {/* LEFT - MENU */}
       <Pressable
         onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
       >
         <Entypo name="menu" size={28} color="black" />
       </Pressable>
 
-      {/* RIGHT - Profile Info */}
       <View
         style={{
           flexDirection: "row",
