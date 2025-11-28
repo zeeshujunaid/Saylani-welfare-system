@@ -12,7 +12,6 @@ export default function Activity() {
 
       <View style={styles.container}>
         <View style={styles.card}>
-          {/* Header Row */}
           <View style={styles.headercontainer}>
             <View style={styles.headertext}>
               <Text style={styles.title}>Laptop Support</Text>
@@ -24,7 +23,6 @@ export default function Activity() {
             </View>
           </View>
 
-          {/* Case Number Dropdown Row */}
           <TouchableOpacity
             style={styles.casecontainer}
             onPress={() => setOpen(!open)}
@@ -41,12 +39,74 @@ export default function Activity() {
             </View>
           </TouchableOpacity>
 
-          {/* Dropdown Content */}
           {open && (
-            <View style={styles.dropdownBox}>
-              <Text style={styles.dropText}>• Submitted on: 20 Nov 2025</Text>
-              <Text style={styles.dropText}>• Verified by: Admin Team</Text>
-              <Text style={styles.dropText}>• Status: Under Review</Text>
+            <View style={styles.timelineContainer}>
+              {/* Step 1 */}
+              <View style={styles.stepRow}>
+                <View style={styles.iconWrapper}>
+                  <View style={styles.circle}>
+                    <Ionicons name="checkmark" size={14} color="#fff" />
+                  </View>
+                  <View style={styles.line} />
+                </View>
+                <View style={styles.stepContent}>
+                  <Text style={styles.stepTitle}>Request Submitted</Text>
+                  <Text style={styles.stepDesc}>
+                    Your laptop request has been successfully submitted and is
+                    now in our system.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Step 2 */}
+              <View style={styles.stepRow}>
+                <View style={styles.iconWrapper}>
+                  <View style={styles.circle}>
+                    <Ionicons name="time-outline" size={14} color="#fff" />
+                  </View>
+                  <View style={styles.line} />
+                </View>
+                <View style={styles.stepContent}>
+                  <Text style={styles.stepTitle}>Under Review</Text>
+                  <Text style={styles.stepDesc}>
+                    Our team is currently reviewing your request and verifying
+                    all requirements.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Step 3 */}
+              <View style={styles.stepRow}>
+                <View style={styles.iconWrapper}>
+                  <View style={styles.circle}>
+                    <Ionicons name="call-outline" size={14} color="#fff" />
+                  </View>
+                  <View style={styles.line} />
+                </View>
+                <View style={styles.stepContent}>
+                  <Text style={styles.stepTitle}>Approval / Interview</Text>
+                  <Text style={styles.stepDesc}>
+                    Final approval is pending. You may be contacted for a brief
+                    interview or clarification.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Step 4 */}
+              <View style={styles.stepRow}>
+                <View style={styles.iconWrapper}>
+                  <View style={styles.circle}>
+                    <Ionicons name="laptop-outline" size={14} color="#fff" />
+                  </View>
+                </View>
+                <View style={styles.stepContent}>
+                  <Text style={styles.stepTitle}>Laptop Distribution</Text>
+                  <Text style={styles.stepDesc}>
+                    Once approved, your laptop will be prepared and scheduled
+                    for distribution.
+                  </Text>
+                </View>
+              </View>
             </View>
           )}
         </View>
@@ -113,7 +173,58 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 10,
     borderRadius: 8,
+    alignSelf:"center",
   },
 
   statusText: { color: "#D97706", fontWeight: "600" },
+  timelineContainer: {
+    marginTop: 15,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#F8FAFC",
+  },
+
+  stepRow: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+
+  iconWrapper: {
+    width: 40,
+    alignItems: "center",
+  },
+
+  circle: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: "#0284C7",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  line: {
+    width: 2,
+    height: "10%",
+    backgroundColor: "#93C5FD",
+  },
+
+  stepContent: {
+    flex: 1,
+    backgroundColor: "#E8F1FF",
+    padding: 12,
+    borderRadius: 10,
+  },
+
+  stepTitle: {
+    fontSize: 15,
+    fontWeight: "600",
+    marginBottom: 4,
+    color: "#1E40AF",
+  },
+
+  stepDesc: {
+    fontSize: 13,
+    color: "#475569",
+  },
 });
