@@ -4,14 +4,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 export default function Header() {
   return (
     <View style={styles.header}>
-      {/* Left Logo */}
       <Image
         source={require("../../assets/images/saylanilogo.png")}
         style={styles.logo}
         resizeMode="contain"
       />
 
-      {/* Right Notification Button */}
       <View style={styles.notificationBox}>
         <Ionicons name="notifications-outline" size={26} color="#00000070" />
       </View>

@@ -3,9 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 export default function SaillStatus() {
   return (
     <View style={styles.container}>
-      {/* Single Combined Card */}
       <View style={styles.mainCard}>
-        {/* Top: Status Row */}
         <View style={styles.statusRow}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text style={styles.label}>Saail ID:-</Text>
@@ -23,7 +21,6 @@ export default function SaillStatus() {
           </View>
         </View>
 
-        {/* Bottom: User Info */}
         <View style={styles.userRow}>
           <View style={styles.userImageContainer}>
             <Image

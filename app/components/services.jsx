@@ -4,13 +4,10 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 export default function Services() {
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Services</Text>
         <Text style={styles.headerLink}>View All</Text>
       </View>
-
-      {/* ROW 1 */}
       <View style={styles.row}>
         <View style={styles.card}>
           <View style={styles.iconCircle}>
@@ -34,8 +31,6 @@ export default function Services() {
           <Text style={styles.cardText}>Medical</Text>
         </View>
       </View>
-
-      {/* ROW 2 */}
       <View style={styles.row}>
         <View style={styles.card}>
           <View style={styles.iconCircle}>
@@ -47,7 +42,7 @@ export default function Services() {
         <View style={styles.card}>
           <View style={styles.iconCircle}>
             <MaterialCommunityIcons
-              name="hand-coin"
+              name="credit-card-outline"
               size={28}
               color="#007AFF"
             />
@@ -63,18 +58,18 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
   },
-
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 15,
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontWeight: "500",
+    color:"#000",
   },
   headerLink: {
-    color: "#007AFF",
+    color: "#00000083",
     fontSize: 14,
     fontWeight: "600",
   },
@@ -96,9 +91,9 @@ const styles = StyleSheet.create({
   },
 
   iconCircle: {
-    height: 55,
-    width: 55,
-    borderRadius: 55,
+    height: 65,
+    width: 65,
+    borderRadius: 10,
     backgroundColor: "#e8f2ff",
     justifyContent: "center",
     alignItems: "center",
@@ -107,7 +102,7 @@ const styles = StyleSheet.create({
 
   cardText: {
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "500",
     color: "#333",
   },
 });
