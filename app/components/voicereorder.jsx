@@ -104,14 +104,10 @@ export default function AudioScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.recordBox}>
-        <Text style={styles.title}>Voice Recorder</Text>
-
-        {/* Recording duration */}
         {isRecording && (
           <Text style={styles.duration}>Recording: {recordingDuration}s</Text>
         )}
 
-        {/* Start / Stop Recording Button */}
         <TouchableOpacity
           style={[styles.button, isRecording ? styles.stopButton : styles.startButton]}
           onPress={isRecording ? stopRecording : startRecording}
@@ -127,11 +123,6 @@ export default function AudioScreen() {
             <Text style={styles.buttonText}>Play Recording</Text>
           </TouchableOpacity>
         )}
-
-        {/* Add new recording button */}
-        <TouchableOpacity style={styles.plusButton} onPress={startRecording}>
-          <Text style={styles.plusText}>+</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -178,19 +169,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 16,
-  },
-  plusButton: {
-    marginTop: 15,
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "#007AFF",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  plusText: {
-    fontSize: 28,
-    color: "#fff",
-    fontWeight: "bold",
   },
 });
