@@ -1,25 +1,28 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
-import { useLocalSearchParams } from "expo-router";
-import Header from "../components/Header";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Header from "../components/Header";
 import Audiorecorder from "../components/voicereorder";
 export default function Request() {
+  const router = useRouter();
   const { title } = useLocalSearchParams();
   const [income, setIncome] = useState("");
 
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.headerContainer}>
-        <TouchableOpacity style={styles.backIconContainer}>
+        <TouchableOpacity
+          style={styles.backIconContainer}
+          onPress={() => router.back()}
+        >
           <Ionicons name="chevron-back-outline" size={28} color="black" />
         </TouchableOpacity>
         <View style={styles.headerWrapper}>
@@ -49,9 +52,8 @@ export default function Request() {
           </View>
         </View>
 
-        {/* Laptop Reason */}
         <View style={styles.describeContainer}>
-          <Text style={styles.label}>Why do you need a laptop?</Text>
+          <Text style={styles.label}>Why do you need a {title}?</Text>
           <Text style={styles.subLabel}>Type or record your voice</Text>
           <TextInput
             style={styles.input}
@@ -163,8 +165,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   recorderview: {
-    width: 300, // ya "90%" screen width
-    height: 150, // min height for buttons & text
+    width: 300,
+    height: 150,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 10,
