@@ -11,18 +11,68 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
+import Toast from "react-native-toast-message";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Signup() {
   const [checked, setChecked] = useState(false);
   const router = useRouter();
+  const [cnic, setCnic] = useState("");
+  const [phone, setPhone] = useState("");
+  const [rephone, setRephone] = useState("");
   const [error, setError] = useState(false);
-  
-  
-    const handellogin=()=>{
+
+  const handelSignup = () => {
+    if (!cnic || cnic.length !== 13 || !/^[0-9]+$/.test(cnic)) {
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Please enter a valid 13-digit CNIC number",
+      });
+      setCnic("");
       setError(true);
+      return;
     }
 
+    if (!phone || phone.length !== 11 || !/^[0-9]+$/.test(phone)) {
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Please enter a valid 11-digit phone number",
+      });
+      setPhone("");
+      setError(true);
+      return;
+    }
+
+    if (!rephone || rephone !== phone) {
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Phone numbers do not match",
+      });
+      setRephone("");
+      setError(true);
+      return;
+    }
+
+    if (!checked) {
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Please accept the terms and conditions",
+      });
+      setError(true);
+      return;
+    }
+
+    router.replace("/auth/Registrationform");
+
+    setCnic("");
+    setPhone("");
+    setRephone("");
+    setChecked(false);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -53,6 +103,8 @@ export default function Signup() {
 
             <View style={styles.inputContainer}>
               <TextInput
+                value={cnic}
+                onChangeText={(text) => setCnic(text)}
                 placeholder="422101-1234567-1"
                 placeholderTextColor="#909090"
                 style={styles.input}
@@ -64,6 +116,8 @@ export default function Signup() {
 
             <View style={styles.inputContainer}>
               <TextInput
+                value={phone}
+                onChangeText={(text) => setPhone(text)}
                 placeholder="0300-1234567"
                 placeholderTextColor="#909090"
                 style={styles.input}
@@ -75,6 +129,8 @@ export default function Signup() {
 
             <View style={styles.inputContainer}>
               <TextInput
+                value={rephone}
+                onChangeText={(text) => setRephone(text)}
                 placeholder="0300-1234567"
                 placeholderTextColor="#909090"
                 style={styles.input}
@@ -129,7 +185,7 @@ export default function Signup() {
               </View>
             )}
 
-            <TouchableOpacity onPress={handellogin}>
+            <TouchableOpacity onPress={handelSignup}>
               <View style={styles.button}>
                 <Text
                   style={{ color: "#fff", fontWeight: "700", fontSize: 18 }}

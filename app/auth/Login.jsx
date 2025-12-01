@@ -27,7 +27,7 @@ export default function Login() {
           text2: "Please enter a valid 13-digit CNIC number",
         });
         setCnic("");
-        setError("cnic");
+        setError(true);
         return;
       }
       if (!phone || phone.length !== 11 || !/^[0-9]+$/.test(phone)) {
@@ -37,7 +37,7 @@ export default function Login() {
           text2: "Please enter a valid 11-digit phone number",
         });
         setPhone("");
-        setError("phone");
+        setError(true);
         return;
       }
 
@@ -97,36 +97,17 @@ export default function Login() {
               />
             </View>
 
-            {error === "cnic" && (
+            {error && (
               <View
                 style={{
                   height: 50,
                   width: "100%",
-                  borderRadius: 10,
                   backgroundColor: "#FEF2F2",
                   justifyContent: "center",
-                  marginBottom: 10,
                 }}
               >
-                <Text style={{ color: "#EF4444", paddingLeft: 10 }}>
-                  Please enter a valid 13-digit CNIC number
-                </Text>
-              </View>
-            )}
-
-            {error === "phone" && (
-              <View
-                style={{
-                  height: 50,
-                  width: "100%",
-                  borderRadius: 10,
-                  backgroundColor: "#FEF2F2",
-                  justifyContent: "center",
-                  marginBottom: 10,
-                }}
-              >
-                <Text style={{ color: "#EF4444", paddingLeft: 10 }}>
-                  Please enter a valid 11-digit phone number
+                <Text style={{ color: "#EF4444" }}>
+                  plz fill all required fields
                 </Text>
               </View>
             )}
@@ -146,7 +127,7 @@ export default function Login() {
                 Don't have an account?{" "}
                 <Text
                   style={styles.signupText}
-                  onPress={() => router.push("/(tabs)/Homescreen")}
+                  onPress={() => router.push("/auth/Signup")}
                 >
                   Signup
                 </Text>
