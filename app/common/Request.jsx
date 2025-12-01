@@ -30,11 +30,9 @@ export default function Request() {
         </View>
       </View>
 
-      {/* Content */}
       <View style={styles.content}>
         <Text style={styles.title}>Request {title}</Text>
 
-        {/* Monthly Income */}
         <View style={styles.rowItem}>
           <Text style={styles.label}>What is Your Monthly Income?</Text>
           <View style={styles.dropdown}>
@@ -43,11 +41,11 @@ export default function Request() {
               onValueChange={(value) => setIncome(value)}
             >
               <Picker.Item label="Select Income" value="" />
-              <Picker.Item label="Less than $500" value="<500" />
-              <Picker.Item label="$500 - $1000" value="500-1000" />
-              <Picker.Item label="$1000 - $2000" value="1000-2000" />
-              <Picker.Item label="$2000 - $3000" value="2000-3000" />
-              <Picker.Item label="More than $3000" value=">3000" />
+              <Picker.Item label="Less than pkr5000" value="<5000" />
+              <Picker.Item label="pkr5000 - pkr10000" value="5000-10000" />
+              <Picker.Item label="pkr10000 - pkr20000" value="10000-20000" />
+              <Picker.Item label="pkr20000 - pkr30000" value="20000-30000" />
+              <Picker.Item label="More than pkr30000" value=">30000" />
             </Picker>
           </View>
         </View>

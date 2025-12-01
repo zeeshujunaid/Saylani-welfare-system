@@ -11,24 +11,40 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
+import Toast from "react-native-toast-message";
 export default function Login() {
   const router = useRouter();
   const [cnic, setCnic] = useState("");
   const [phone, setPhone] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   
   
     const handellogin = () => {
-      if (!cnic || !phone) {
-        setError(true);
-      } else {
-        setError(false);
-        router.push('/auth/Verification');
-        setError(false);
+      if (!cnic || cnic.length !== 13 || !/^[0-9]+$/.test(cnic)) {
+        Toast.show({
+          type: "error",
+          text1: "Error",
+          text2: "Please enter a valid 13-digit CNIC number",
+        });
+        setCnic("");
+        setError("cnic");
+        return;
       }
+      if (!phone || phone.length !== 11 || !/^[0-9]+$/.test(phone)) {
+        Toast.show({
+          type: "error",
+          text1: "Error",
+          text2: "Please enter a valid 11-digit phone number",
+        });
+        setPhone("");
+        setError("phone");
+        return;
+      }
+
+      router.replace("/auth/Registrationform");
       setCnic("");
       setPhone("");
-    }
+    };
 
 
   return (
@@ -81,17 +97,36 @@ export default function Login() {
               />
             </View>
 
-            {error && (
+            {error === "cnic" && (
               <View
                 style={{
                   height: 50,
                   width: "100%",
+                  borderRadius: 10,
                   backgroundColor: "#FEF2F2",
                   justifyContent: "center",
+                  marginBottom: 10,
                 }}
               >
-                <Text style={{ color: "#EF4444" }}>
-                  plz fill all required fields
+                <Text style={{ color: "#EF4444", paddingLeft: 10 }}>
+                  Please enter a valid 13-digit CNIC number
+                </Text>
+              </View>
+            )}
+
+            {error === "phone" && (
+              <View
+                style={{
+                  height: 50,
+                  width: "100%",
+                  borderRadius: 10,
+                  backgroundColor: "#FEF2F2",
+                  justifyContent: "center",
+                  marginBottom: 10,
+                }}
+              >
+                <Text style={{ color: "#EF4444", paddingLeft: 10 }}>
+                  Please enter a valid 11-digit phone number
                 </Text>
               </View>
             )}
